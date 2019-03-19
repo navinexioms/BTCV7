@@ -23,6 +23,7 @@ namespace Photon.Pun.UtilityScripts
 		public Text FourPlayerText;
 		public Text WarningText;
 		public Text TwoPlayerSelectionText;
+		public GameObject LoaddingImage;
 		void Start () 
 		{
 			PlayerPrefs.SetString ("roomname", null);
@@ -103,8 +104,10 @@ namespace Photon.Pun.UtilityScripts
 		public void TwoPlayerJoinRoomMethod()
 		{
 			string name = PlayerPrefs.GetString ("roomname");
+			LoaddingImage.SetActive (true);
 			print (name);
 			if (name.Length == 0 || name.Length < 1) {
+				LoaddingImage.SetActive (false);
 				StartCoroutine (RoomNameWarning ("please enter room name to join room",1.5f));
 			} 
 
@@ -144,6 +147,7 @@ namespace Photon.Pun.UtilityScripts
 		IEnumerator GettingRoomName()
 		{
 			print ("Hello");
+			LoaddingImage.SetActive (true);
 			UnityWebRequest www =new UnityWebRequest ("http://apienjoybtc.exioms.me/api/Room/roomcreatebyuser?struserid="+ PlayerPrefs.GetString("userid")+"&strgamesessionid=1&intgametype=2&dblamount="+PlayerPrefs.GetString("amount"));
 			www.chunkedTransfer = false;
 			www.downloadHandler = new DownloadHandlerBuffer ();
@@ -156,9 +160,11 @@ namespace Photon.Pun.UtilityScripts
 				msg = msg.Substring (1, msg.Length - 2);
 				JSONNode jn = SimpleJSON.JSONData.Parse (msg);
 				msg = jn [0];
-				if (msg.Contains("2PLDO")) {
+				if (msg.Contains ("2PLDO")) {
 					SceneManager.LoadScene ("BettingAmountFor2PlayerPlayWithFriends");
 					PlayerPrefs.SetString ("roomname", msg);
+				} else {
+					LoaddingImage.SetActive (false);
 				}
 			}
 		}

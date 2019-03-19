@@ -13,6 +13,8 @@ namespace Photon.Pun.UtilityScripts
 {
 	public class OneOnOneGameLogic :  MonoBehaviourPunCallbacks,IPunTurnManagerCallbacks
 	{
+		public GameObject GameDiceBoard;
+
 		public GameObject SoundOn, SoundOff;
 
 		public string soundValue;
@@ -384,6 +386,9 @@ namespace Photon.Pun.UtilityScripts
 			if (playerTurn == "BLUE") 
 			{
 				diceRoll.position = BlueDiceRollPosition.position;
+
+				//if this is Blue player then dice position will be at master's side
+				//else dice position will be on opponent side
 				DiceRollButton.GetComponent<Image> ().sprite = DiceSprite [6];
 				TimerImage.transform.position = TimerOnePosition;
 				EnablingBluePlayersRaycast ();
@@ -394,6 +399,8 @@ namespace Photon.Pun.UtilityScripts
 			}
 			if (playerTurn == "GREEN") 
 			{
+				//if this is green then dice position will be at master's side
+				//else dice position will be on opponent side
 				diceRoll.position = GreenDiceRollPosition.position;
 				DiceRollButton.GetComponent<Image> ().sprite = DiceSprite [6];
 				TimerImage.transform.position = TimerTwoPosition;
@@ -2258,19 +2265,21 @@ namespace Photon.Pun.UtilityScripts
 				EnableFrameAndBorderForFirstTime ();
 				ImageFillingCounter = 1;
 				DisconnectText.text="Game will start in";
-				if (PhotonNetwork.IsMasterClient) {
-					MasterName.text = "" + PhotonNetwork.PlayerList [0].NickName;
-					RemoteText.text = "" + PhotonNetwork.PlayerList [1].NickName;
-				} else {
-					MasterName.text = "" + PhotonNetwork.PlayerList [1].NickName;
-					RemoteText.text = "" + PhotonNetwork.PlayerList [0].NickName;
+
+				MasterName.text = "" + PhotonNetwork.LocalPlayer.NickName;
+				RemoteText.text = "" + PhotonNetwork.PlayerListOthers [0].NickName;
+
+				if (!PhotonNetwork.IsMasterClient) {
+					GameDiceBoard.transform.rotation = Quaternion.Euler (new Vector3(0,0,-180));
 				}
+				
 			} else if (PhotonNetwork.PlayerList.Length == 1) {
 				DisconnectPanel.SetActive (true);
 				ReconnectButton.SetActive(false);
 				DisconnectText.text="WAIT TILL THE COUNTDOWN TO CONNECT OTHER PLAYER";
 			}
 			if (PhotonNetwork.IsMasterClient) {
+				
 				int num = int.Parse (PlayerPrefs.GetString ("Avatar"));
 				print (num);
 				if (num == 11) {
@@ -2623,13 +2632,9 @@ namespace Photon.Pun.UtilityScripts
 		IEnumerator StartGame()
 		{
 			ReconnectButton.SetActive (false);
-			if (PhotonNetwork.IsMasterClient) {
-				MasterName.text = "" + PhotonNetwork.PlayerList [0].NickName;
-				RemoteText.text = "" + PhotonNetwork.PlayerList [1].NickName;
-			} else {
-				MasterName.text = "" + PhotonNetwork.PlayerList [0].NickName;
-				RemoteText.text = "" + PhotonNetwork.PlayerList [1].NickName;
-			}
+			MasterName.text = "" + PhotonNetwork.LocalPlayer.NickName;
+			RemoteText.text = "" + PhotonNetwork.PlayerListOthers [0].NickName;
+
 			DisconnectText.text="Other Player is Connected, Game Start In";
 			yield return new WaitForSeconds (3);
 			DisconnectText.text=null;

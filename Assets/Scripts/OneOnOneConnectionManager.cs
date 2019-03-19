@@ -11,7 +11,7 @@ namespace Photon.Pun.UtilityScripts
 {
 	public class OneOnOneConnectionManager : MonoBehaviourPunCallbacks
 	{
-		public static bool isMaster,isRemote,JoinedRoomFlag;
+		public bool isMaster,isRemote,JoinedRoomFlag;
 		public Text WarningText;
 		public GameObject LoadingImage,CreateRoomButton;
 		public string GameLobbyName=null;

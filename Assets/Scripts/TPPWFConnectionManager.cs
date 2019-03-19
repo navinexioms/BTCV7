@@ -11,7 +11,7 @@ using UnityEngine.EventSystems;
 namespace Photon.Pun.UtilityScripts
 {
 	public class TPPWFConnectionManager : MonoBehaviourPunCallbacks {
-		public static bool isMaster,isRemote,JoinedRoomFlag;
+		public bool isMaster,isRemote,JoinedRoomFlag;
 		public bool isSelectedAmount;
 		private GameObject QuitPanel;
 		public GameObject AmountCheckButton;
@@ -81,7 +81,7 @@ namespace Photon.Pun.UtilityScripts
 		{
 			print (_result);
 			print ("FinishSharing ()");
-//			StartCoroutine (RoomNameTracking());
+			StartCoroutine (RoomNameTracking());
 		}
 
 		public void AmountSelectionMethod()
@@ -183,7 +183,6 @@ namespace Photon.Pun.UtilityScripts
 		}
 		public override void OnCreatedRoom()
 		{
-			StartCoroutine (RoomNameTracking ());
 			print ("Room Created Successfully");
 			InviteFriend ();
 		}
