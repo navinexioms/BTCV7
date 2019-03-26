@@ -275,7 +275,7 @@ public class SceneController : MonoBehaviour
 
 
 
-	void OnApplicationQuit()
+	/*void OnApplicationQuit()
 	{
 		string id=PlayerPrefs.GetString ("userid");
 		if ((Application.internetReachability == NetworkReachability.ReachableViaLocalAreaNetwork || Application.internetReachability == NetworkReachability.ReachableViaCarrierDataNetwork) && id.Length>0) {
@@ -290,5 +290,5 @@ public class SceneController : MonoBehaviour
 			print ("Quitting When There is no internet connection");
 		}
 	}
-
+*/
 }

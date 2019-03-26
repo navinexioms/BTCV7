@@ -26,9 +26,9 @@ namespace Photon.Pun.UtilityScripts
 		{
 			print ("AmountSelectionMethod");
 			GameLobbyName = EventSystem.current.currentSelectedGameObject.name;
-			foreach(GameObject go in Amounts){
-				go.GetComponent<Toggle> ().interactable = false;
-			}
+//			foreach(GameObject go in Amounts){
+//				go.GetComponent<Toggle> ().interactable = false;
+//			}
 			LoadingImage.SetActive (true);
 			CreateRoomButton.SetActive (false);
 
@@ -204,6 +204,5 @@ namespace Photon.Pun.UtilityScripts
 				JoinedRoomFlag = true;
 			}
 		}
-
 	}
 }

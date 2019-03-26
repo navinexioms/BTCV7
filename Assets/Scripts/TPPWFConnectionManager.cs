@@ -64,6 +64,11 @@ namespace Photon.Pun.UtilityScripts
 				PhotonNetwork.ConnectUsingSettings ();
 			}
 		}
+
+
+
+
+
 		public IEnumerator RoomNameWarning(string warn)
 		{
 			WarningText.text = warn;
@@ -88,9 +93,9 @@ namespace Photon.Pun.UtilityScripts
 		{
 			print ("AmountSelectionMethod");
 			GameLobbyName= EventSystem.current.currentSelectedGameObject.name;
-			foreach(GameObject go in Amounts){
-				go.GetComponent<Toggle> ().interactable = false;
-			}
+//			foreach(GameObject go in Amounts){
+//				go.GetComponent<Toggle> ().interactable = false;
+//			}
 			LoadingImage.SetActive (true);
 			isSelectedAmount = true;
 
@@ -244,6 +249,5 @@ namespace Photon.Pun.UtilityScripts
 				print (request11.downloadHandler.text);
 			}
 		}
-
 	}
 }

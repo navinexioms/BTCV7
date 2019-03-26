@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AppSettings:
     AppIdRealtime: 95f0cd7b-39a9-4845-9a6b-735d7083f339
-    AppIdChat: 
+    AppIdChat: 21d2ae07-8446-4f38-b87f-a537b95dbbbb
     AppIdVoice: 
     AppVersion: .3
     UseNameServer: 1

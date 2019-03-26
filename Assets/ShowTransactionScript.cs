@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using SimpleJSON;
+using UnityEngine.SceneManagement;
 public class ShowTransactionScript : MonoBehaviour {
 	public GameObject RowData;
 	public GameObject ParentObj;
@@ -31,10 +32,13 @@ public class ShowTransactionScript : MonoBehaviour {
 				JSONNode jn = SimpleJSON.JSONData.Parse (msg);
 
 				print (jn);
+
 				int num1 = 0, num2 = 1, num3 = 2, num4 = 3;
 				foreach (JSONNode jn1 in jn.Childs) {
 					print (jn1);
-
+					if (jn1 [num1].Value.Equals ("SessionisLogout")) {
+						SceneManager.LoadScene ("Home");
+					}
 					print (jn1 [num1] + " " + jn1 [num2] + " " + jn1 [num3] + " " + jn1 [num4]);
 
 					GameObject data = Instantiate (RowData, ParentObj.transform.position, ParentObj.transform.rotation, ParentObj1.transform);

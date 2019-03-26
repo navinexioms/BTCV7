@@ -13,6 +13,7 @@ namespace Photon.Pun.UtilityScripts
 
 
 		public Toggle TwoPlayerToggle, FourPlayerToggle;
+		public Text RoomnameText;
 		public GameObject TwoPlayerGameObject, FourPlayerGameObject,TwoPlayerButton,FourPlayerButton;
 		public bool isSelectedGameType;
 		public GameObject TwoPlayerCreateRoomButton;
@@ -51,6 +52,7 @@ namespace Photon.Pun.UtilityScripts
 				WarningText.text = warn;
 			}
 			yield return new WaitForSeconds (time);
+			LoaddingImage.SetActive (false);
 			WarningText.text = null;
 			TwoPlayerSelectionText.text = null;
 		}
@@ -103,14 +105,17 @@ namespace Photon.Pun.UtilityScripts
 
 		public void TwoPlayerJoinRoomMethod()
 		{
+			
+//			string name = PlayerPrefs.GetString ("roomname");
+			PlayerPrefs.SetString("roomname",RoomnameText.text);
 			string name = PlayerPrefs.GetString ("roomname");
+			print (name);
 			LoaddingImage.SetActive (true);
 			print (name);
 			if (name.Length == 0 || name.Length < 1) {
 				LoaddingImage.SetActive (false);
-				StartCoroutine (RoomNameWarning ("please enter room name to join room",1.5f));
+				StartCoroutine (RoomNameWarning ("please enter room name to join room", 1.5f));
 			} 
-
 			else {
 				StartCoroutine (CheckRoomAvailability());
 			}
@@ -122,7 +127,7 @@ namespace Photon.Pun.UtilityScripts
 
 		IEnumerator CheckRoomAvailability()
 		{
-			UnityWebRequest www = new UnityWebRequest ("http://apienjoybtc.exioms.me/api/Room/roomcheck?struserid="+809+"&strgamesessionid=1&roomid="+PlayerPrefs.GetString("roomname"));
+			UnityWebRequest www = new UnityWebRequest ("http://apienjoybtc.exioms.me/api/Room/roomcheck?struserid="+PlayerPrefs.GetString ("userid")+"&strgamesessionid=1&roomid="+PlayerPrefs.GetString("roomname"));
 			www.chunkedTransfer = false;
 			www.downloadHandler = new DownloadHandlerBuffer ();
 			yield return www.SendWebRequest ();
@@ -135,7 +140,11 @@ namespace Photon.Pun.UtilityScripts
 				print (msg);
 				JSONNode jn = SimpleJSON.JSONData.Parse (msg);
 				msg = jn [0];
-				if (msg.Equals ("Roomisavailable")) {
+				if (jn [0].Value.Equals ("SessionisLogout")) {
+					PlayerPrefs.SetString ("userid", null);
+					SceneManager.LoadScene ("Home");
+				}
+				else if (msg.Length==15) {
 					SceneManager.LoadScene ("BettingAmountFor2PlayerPlayWithFriends");
 				} else {
 					StartCoroutine (RoomNameWarning ("No room room by this name please enter room name properly",2));
@@ -160,7 +169,11 @@ namespace Photon.Pun.UtilityScripts
 				msg = msg.Substring (1, msg.Length - 2);
 				JSONNode jn = SimpleJSON.JSONData.Parse (msg);
 				msg = jn [0];
-				if (msg.Contains ("2PLDO")) {
+				if (jn [0].Value.Equals ("InvalidID")) {
+					PlayerPrefs.SetString ("userid",null);
+					SceneManager.LoadScene ("Home");
+				}
+				else if (msg.Contains ("2PLDO")) {
 					SceneManager.LoadScene ("BettingAmountFor2PlayerPlayWithFriends");
 					PlayerPrefs.SetString ("roomname", msg);
 				} else {

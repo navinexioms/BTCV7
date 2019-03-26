@@ -57,6 +57,11 @@ public class ExtraSceneController : MonoBehaviour
 			JSONNode jn = SimpleJSON.JSONData.Parse (msg);
 			Balance.text = jn [0];
 
+			if (jn [0].Value.Equals ("SessionisLogout")) {
+				PlayerPrefs.SetString ("userid",null);
+				SceneManager.LoadScene ("Home");
+			}
+
 			userID.text = PlayerPrefs.GetString ("username");
 			int num = int.Parse (PlayerPrefs.GetString ("Avatar"));
 			print (num);
@@ -81,6 +86,10 @@ public class ExtraSceneController : MonoBehaviour
 			msg = msg.Substring (1, msg.Length - 2);
 			JSONNode jn = SimpleJSON.JSONData.Parse (msg);
 			print (jn);
+			if (jn [0].Value.Equals ("SessionisLogout")) {
+				PlayerPrefs.SetString ("userid",null);
+				SceneManager.LoadScene ("Home");
+			}
 			UsernameText.text = jn [0];
 			EmailText.text = jn [1];
 			MobileNoText.text = jn [2];
@@ -354,7 +363,7 @@ public class ExtraSceneController : MonoBehaviour
 		SceneManager.LoadScene ("OneOnOneGameBoard");
 	}
 
-	void OnApplicationQuit()
+	/*void OnApplicationQuit()
 	{
 		if (Application.internetReachability == NetworkReachability.ReachableViaLocalAreaNetwork || Application.internetReachability == NetworkReachability.ReachableViaCarrierDataNetwork) {
 			print ("Quit the Application When internet connection is There and Logged out");
@@ -364,7 +373,7 @@ public class ExtraSceneController : MonoBehaviour
 		{
 			print ("no Internet connection is there can't Logout");
 		}
-	}
+	}*/
 
 
 }
