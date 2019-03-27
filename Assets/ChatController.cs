@@ -105,7 +105,10 @@ namespace Photon.Chat
 
 
 
-		public void OnSubscribed(string[] channels, bool[] results){}
+		public void OnSubscribed(string[] channels, bool[] results)
+		{
+			
+		}
 
 		public void OnUnsubscribed(string[] channels){}
 		public void OnStatusUpdate(string user, int status, bool gotMessage, object message){}

@@ -296,7 +296,7 @@ namespace Photon.Pun.UtilityScripts
 					AmountDisplay2.GetComponent<Text> ().text = "" + lossAmount;
 
 					StartCoroutine (LosserAPI ("2", "2"));
-				
+
 				}
 			}
 
@@ -1091,7 +1091,7 @@ namespace Photon.Pun.UtilityScripts
 				//=========================PLAYERS DON'T HAVE ANY MOVES , SWITCH TO NEXT PLAYER'S TURN=========================//
 
 				if (!BluePlayerI_Border.activeInHierarchy && !BluePlayerII_Border.activeInHierarchy &&
-				    !BluePlayerIII_Border.activeInHierarchy && !BluePlayerIV_Border.activeInHierarchy) {
+					!BluePlayerIII_Border.activeInHierarchy && !BluePlayerIV_Border.activeInHierarchy) {
 					DisablingButtonsOFBluePlayes ();
 					//	print ("PLAYERS DON'T HAVE OPTION TO MOVE , SWITCH TO NEXT PLAYER TURN");
 
@@ -1181,7 +1181,7 @@ namespace Photon.Pun.UtilityScripts
 				//=========================PLAYERS DON'T HAVE ANY MOVES , SWITCH TO NEXT PLAYER'S TURN=========================//
 
 				if (!GreenPlayerI_Border.activeInHierarchy && !GreenPlayerII_Border.activeInHierarchy &&
-				    !GreenPlayerIII_Border.activeInHierarchy && !GreenPlayerIV_Border.activeInHierarchy) {
+					!GreenPlayerIII_Border.activeInHierarchy && !GreenPlayerIV_Border.activeInHierarchy) {
 					DisablingButtonsOfGreenPlayers ();
 					print ("GREEN PLAYER DON'T HAVE OPTION TO MOVE , SWITCH TO NEXT PLAYER TURN");
 					playerTurn = "BLUE";
@@ -1302,7 +1302,7 @@ namespace Photon.Pun.UtilityScripts
 					}
 
 					MovingBlueOrGreenPlayerInSafeHouse (BluePlayerI, BluePiceSafeHouse[0] );
-//					Vector3.MoveTowards(BluePlayerI.transform.position, BluePiceSafeHouse[0],1);
+					//					Vector3.MoveTowards(BluePlayerI.transform.position, BluePiceSafeHouse[0],1);
 					totalBlueInHouse += 1;
 					print ("Cool");
 					BluePlayerI_Button.enabled = false;
@@ -1412,7 +1412,7 @@ namespace Photon.Pun.UtilityScripts
 					}
 
 					MovingBlueOrGreenPlayerInSafeHouse (BluePlayerII, BluePiceSafeHouse[1]);
-//					Vector3.MoveTowards(BluePlayerII.transform.position, BluePiceSafeHouse[1],1);
+					//					Vector3.MoveTowards(BluePlayerII.transform.position, BluePiceSafeHouse[1],1);
 					totalBlueInHouse += 1;
 					print ("Cool");
 					BluePlayerII_Button.enabled = false;
@@ -1523,7 +1523,7 @@ namespace Photon.Pun.UtilityScripts
 					}
 
 					MovingBlueOrGreenPlayerInSafeHouse (BluePlayerIII, BluePiceSafeHouse[2] );
-//					Vector3.MoveTowards(BluePlayerIII.transform.position, BluePiceSafeHouse[2],1);
+					//					Vector3.MoveTowards(BluePlayerIII.transform.position, BluePiceSafeHouse[2],1);
 					totalBlueInHouse += 1;
 					print ("Cool");
 					BluePlayerIII_Button.enabled = false;
@@ -1596,7 +1596,7 @@ namespace Photon.Pun.UtilityScripts
 				{
 					if ((selectDiceNumAnimation == 6 || selectDiceNumAnimation==1) && BluePlayer_Steps [3] == 0)
 					{
-						
+
 						if (soundValue.Equals ("on")) {
 							this.gameObject.GetComponent<AudioSource> ().clip = AudioClips [6];
 							this.gameObject.GetComponent<AudioSource> ().Play ();
@@ -1633,7 +1633,7 @@ namespace Photon.Pun.UtilityScripts
 					}
 
 					MovingBlueOrGreenPlayerInSafeHouse (BluePlayerIV, BluePiceSafeHouse[3] );
-//					Vector3.MoveTowards (BluePlayerIV.transform.position, BluePiceSafeHouse [3], 1);
+					//					Vector3.MoveTowards (BluePlayerIV.transform.position, BluePiceSafeHouse [3], 1);
 					totalBlueInHouse += 1;
 					print ("Cool");
 					BluePlayerIV_Button.enabled = false;
@@ -1749,7 +1749,7 @@ namespace Photon.Pun.UtilityScripts
 					}
 
 					MovingBlueOrGreenPlayerInSafeHouse (GreenPlayerI, GreenPiceSafeHouse[0] );
-//					Vector3.MoveTowards(GreenPlayerI.transform.position, GreenPiceSafeHouse[0],1);
+					//					Vector3.MoveTowards(GreenPlayerI.transform.position, GreenPiceSafeHouse[0],1);
 					totalGreenInHouse += 1;
 					print ("Cool");
 					GreenPlayerI_Button.enabled = false;
@@ -1861,7 +1861,7 @@ namespace Photon.Pun.UtilityScripts
 					}
 
 					MovingBlueOrGreenPlayerInSafeHouse (GreenPlayerII, GreenPiceSafeHouse[1] );
-//					Vector3.MoveTowards(GreenPlayerII.transform.position, GreenPiceSafeHouse[1],1);
+					//					Vector3.MoveTowards(GreenPlayerII.transform.position, GreenPiceSafeHouse[1],1);
 					totalGreenInHouse += 1;
 					print ("Cool");
 					GreenPlayerII_Button.enabled = false;
@@ -1975,7 +1975,7 @@ namespace Photon.Pun.UtilityScripts
 					}
 
 					MovingBlueOrGreenPlayerInSafeHouse (GreenPlayerIII, GreenPiceSafeHouse[2] );
-//					Vector3.MoveTowards(GreenPlayerIII.transform.position, GreenPiceSafeHouse[2],1);
+					//					Vector3.MoveTowards(GreenPlayerIII.transform.position, GreenPiceSafeHouse[2],1);
 					totalGreenInHouse += 1;
 					print ("Cool");
 					GreenPlayerIV_Button.enabled = false;
@@ -2090,7 +2090,7 @@ namespace Photon.Pun.UtilityScripts
 					}
 
 					MovingBlueOrGreenPlayerInSafeHouse (GreenPlayerIV, GreenPiceSafeHouse[3] );
-//					Vector3.MoveTowards(GreenPlayerIV.transform.position, GreenPiceSafeHouse[3],1);
+					//					Vector3.MoveTowards(GreenPlayerIV.transform.position, GreenPiceSafeHouse[3],1);
 					totalGreenInHouse += 1;
 					print ("Cool");
 					GreenPlayerIV_Button.enabled = false;
@@ -2275,7 +2275,7 @@ namespace Photon.Pun.UtilityScripts
 			if(PhotonNetwork.InRoom)
 				name=PhotonNetwork.CurrentRoom.Name;
 			ThisRoomName = name;
-//			ThisLobbyName = PlayerPrefs.GetString ("amount");
+			//			ThisLobbyName = PlayerPrefs.GetString ("amount");
 			print (PlayerPrefs.GetString ("amount"));
 			print (ThisRoomName);
 
@@ -2288,7 +2288,7 @@ namespace Photon.Pun.UtilityScripts
 			TimerTwoPosition = ImageTwo.transform.position;
 
 			//Player initial positions...........
-			 
+
 
 
 			if (PhotonNetwork.PlayerList.Length == 1) 
@@ -2344,20 +2344,20 @@ namespace Photon.Pun.UtilityScripts
 
 			//=====================Setting the initial position======================//
 
-				BluePlayers_Pos [0] = BluePlayerI.transform.position;
-				BluePlayers_Pos [1] = BluePlayerII.transform.position;
-				BluePlayers_Pos [2] = BluePlayerIII.transform.position;
-				BluePlayers_Pos [3] = BluePlayerIV.transform.position;
+			BluePlayers_Pos [0] = BluePlayerI.transform.position;
+			BluePlayers_Pos [1] = BluePlayerII.transform.position;
+			BluePlayers_Pos [2] = BluePlayerIII.transform.position;
+			BluePlayers_Pos [3] = BluePlayerIV.transform.position;
 
-				GreenPlayers_Pos [0] = GreenPlayerI.transform.position;
-				GreenPlayers_Pos [1] = GreenPlayerII.transform.position;
-				GreenPlayers_Pos [2] = GreenPlayerIII.transform.position;
-				GreenPlayers_Pos [3] = GreenPlayerIV.transform.position;
+			GreenPlayers_Pos [0] = GreenPlayerI.transform.position;
+			GreenPlayers_Pos [1] = GreenPlayerII.transform.position;
+			GreenPlayers_Pos [2] = GreenPlayerIII.transform.position;
+			GreenPlayers_Pos [3] = GreenPlayerIV.transform.position;
 
 
 
 			if (PhotonNetwork.IsMasterClient) {
-				
+
 				int num = int.Parse (PlayerPrefs.GetString ("Avatar"));
 				print (num);
 				if (num == 11) {
@@ -2379,9 +2379,9 @@ namespace Photon.Pun.UtilityScripts
 					isMyTurn = true;
 				}
 
-//				BlankTurn1.Add ("None", "" + 0);
-//				temp = BlankTurn1.ToString ();
-//				this.MakeTurn (temp);
+				//				BlankTurn1.Add ("None", "" + 0);
+				//				temp = BlankTurn1.ToString ();
+				//				this.MakeTurn (temp);
 
 				rootNode.Add ("WaitingTime", "Skiped");
 				temp = rootNode.ToString ();
@@ -2396,7 +2396,7 @@ namespace Photon.Pun.UtilityScripts
 				SoundOn.SetActive (false);
 				SoundOff.SetActive (true);
 			}
-//			StartCoroutine (AmountCheckingAfterEntering ());
+			//			StartCoroutine (AmountCheckingAfterEntering ());
 			ActualAmount = int.Parse (PlayerPrefs.GetString ("amount"));
 		}
 
@@ -2442,7 +2442,7 @@ namespace Photon.Pun.UtilityScripts
 					WinAmount = ActualAmount + WinAmount;
 					print ("lossAmount:" + lossAmount + "WinAmount:" + WinAmount);
 				} else {
-					
+
 				}
 			}
 		}
@@ -2496,7 +2496,7 @@ namespace Photon.Pun.UtilityScripts
 			TriggeredTime = 0;
 			TriggerCounter = 0;
 			timer = 0;
-			TimerImage.fillAmount = 1;
+//			TimerImage.fillAmount = 1;
 			JSONNode jn1 = SimpleJSON.JSONData.Parse (temp);
 			if (jn1 [0].Value.Equals ("Master") ) {
 
@@ -2533,7 +2533,7 @@ namespace Photon.Pun.UtilityScripts
 
 			//=====================for GreenPlayer====================
 			if (jn1 [0].Value.Equals ("Remote") ) {
-				
+
 				if (!PhotonNetwork.IsMasterClient) {
 					diceRoll.position = GreenDiceRollPosition.position;
 					TimerImage.transform.position = TimerTwoPosition;
@@ -2641,7 +2641,7 @@ namespace Photon.Pun.UtilityScripts
 			float WaitingTime = 0;
 
 			if (jn ["WaitingTime"].Value.Equals ("Skiped")) {
-//				isBothPlayerEnteredInRoom = true;
+				//				isBothPlayerEnteredInRoom = true;
 				WaitingTime = 0;
 				WhatToDo = null;
 			}
@@ -2723,9 +2723,9 @@ namespace Photon.Pun.UtilityScripts
 					isMyTurn = true;
 				}
 				StartCoroutine (StartGame());
-//				if (this.turnManager.Turn == 0) {
-//					isMyTurn = true;
-//				}
+				//				if (this.turnManager.Turn == 0) {
+				//					isMyTurn = true;
+				//				}
 				EnableFrameAndBorderForFirstTime ();
 			}
 		}
@@ -2788,9 +2788,9 @@ namespace Photon.Pun.UtilityScripts
 		public override void OnJoinedRoom ()
 		{
 			print ("Joined Room in Board room");
-//			DisconnectText.text = null;
-//			ReconnectButton.SetActive (false);
-//			DisconnectPanel.SetActive (false);
+			//			DisconnectText.text = null;
+			//			ReconnectButton.SetActive (false);
+			//			DisconnectPanel.SetActive (false);
 			isRemotePlayerConnected=true;
 			StartCoroutine (StartGame());
 			playerCounter += 1;
@@ -2842,12 +2842,15 @@ namespace Photon.Pun.UtilityScripts
 				DisconnectPanel.SetActive (true);
 				ReconnectButton.SetActive (false);
 				DisconnectText.text = null;
-				DisconnectText.text = "OTHER PLAYER IS DISCONNECTED, WAIT FOR A WHILE TO RECONNECT OTHER PLAYER,IF THE COUNTDOWN IS OVER YOUR MONEY WILL BE REFUNDED";
+				DisconnectText.text = "OTHER PLAYER IS DISCONNECTED, YOU ARE THE WINNER";
+				Countdown.GetComponent<Text> ().enabled = false;
+				BeTheWinner ();
 			} else {
 				DisconnectPanel.SetActive (true);
 				ReconnectButton.SetActive (false);
 				DisconnectText.text = null;
-				StartCoroutine (RoomDiscard ("OPPONENT IS NOT PLAYING GAME ACTIVELY, SO HE IS DISCONNECTED"));
+//				StartCoroutine (RoomDiscard ("OPPONENT IS NOT PLAYING GAME ACTIVELY, SO HE IS DISCONNECTED"));
+				BeTheWinner ();
 			}
 		}
 
@@ -2865,8 +2868,8 @@ namespace Photon.Pun.UtilityScripts
 				TimerImage.fillAmount = 1;
 				DisconnectPanel.SetActive (true);
 				StartCoroutine (AutoDisconnectFromRoom ("Disconnected from the room Quiting to main menu"));
-//				DisconnectText.text = "DISCONNECTED FROM THE ROOM CLICK THE BUTTON TO REENTER THE ROOM";
-//				ReconnectButton.SetActive (true);
+				//				DisconnectText.text = "DISCONNECTED FROM THE ROOM CLICK THE BUTTON TO REENTER THE ROOM";
+				//				ReconnectButton.SetActive (true);
 			}
 			//	base.OnDisconnected (cause);
 		}
@@ -2882,27 +2885,27 @@ namespace Photon.Pun.UtilityScripts
 				QuitPanel.GetComponent<Animator> ().SetInteger ("Counter", 1);
 			}
 			RoomCanBeDiscard ();	
-//			if (!turnManager.CancelGame) {
-				//	print ("Remaining time" + this.turnManager.RemainingSecondsInTurn+" TurnDuration:"+this.turnManager.TurnDuration+"Turn Value:"+this.turnManager.Turn);
-//				if (!PhotonNetwork.InRoom) {
-//					return;
-//				}
+			//			if (!turnManager.CancelGame) {
+			//	print ("Remaining time" + this.turnManager.RemainingSecondsInTurn+" TurnDuration:"+this.turnManager.TurnDuration+"Turn Value:"+this.turnManager.Turn);
+			//				if (!PhotonNetwork.InRoom) {
+			//					return;
+			//				}
 
-				SendBlankTurn ();
+			SendBlankTurn ();
 
-				TimerLogicWhenIsMyTurn ();
+			TimerLogicWhenIsMyTurn ();
 
-//			} else {
-//				if (!NotConnectedProperly) {
-//					NotConnectedProperly = true;
+			//			} else {
+			//				if (!NotConnectedProperly) {
+			//					NotConnectedProperly = true;
 
-//					if this is master and playerturn is green and ismyturn is true then this player have to send the blank turn
-// 					if this is remote and playerturn is blue and ismyturn is true then this player have to send the blank turn
+			//					if this is master and playerturn is green and ismyturn is true then this player have to send the blank turn
+			// 					if this is remote and playerturn is blue and ismyturn is true then this player have to send the blank turn
 
-//					StartCoroutine (AutoDisconnectFromRoom ("not properly connected the room disconnecting from room and money refunding"));
-//				}
-				print ("Player connected to the room properly, Game Can't be Continue");
-//			}
+			//					StartCoroutine (AutoDisconnectFromRoom ("not properly connected the room disconnecting from room and money refunding"));
+			//				}
+			print ("Player connected to the room properly, Game Can't be Continue");
+			//			}
 			DisableAllButtons ();
 		}
 
@@ -2912,7 +2915,7 @@ namespace Photon.Pun.UtilityScripts
 			if ( !isQuitingRoom && !isTimeOut && PhotonNetwork.CurrentRoom.PlayerCount == 1 || PlayerCount1==1 ) {
 				print ("RoomCanBeDiscard()");
 				if (TimePeriodTriggeredTime == 0) {
-					
+
 					TimePeriodTriggeredTime = (int)Time.time;
 				}
 				if (TimePeriod < 60 && !isTimeOut) {
@@ -2920,43 +2923,52 @@ namespace Photon.Pun.UtilityScripts
 					Countdown.text = "" + (60 - TimePeriod);
 				}
 				if (TimePeriod == 60 && !isTimeOut) {
-					
+
 					//call the room discard coroutine
 					isTimeOut=true;
 					if (isBothPlayerEnteredInRoom) {
 
 
-						if (PhotonNetwork.IsMasterClient) {
-							if (soundValue.Equals ("on")) {
-								this.gameObject.GetComponent<AudioSource> ().clip = AudioClips [3];
-								this.gameObject.GetComponent<AudioSource> ().Play ();
-							}
-							WinPanel.SetActive (true);
+						//be the winner
+						BeTheWinner();
 
-							AmountDisplay.GetComponent<Text> ().text = "" + WinAmount;
-
-							StartCoroutine(WinnerAPI("2","2"));
-
-						}
-
-						if (!PhotonNetwork.IsMasterClient) {
-							if (soundValue.Equals ("on")) {
-								this.gameObject.GetComponent<AudioSource> ().clip = AudioClips [3];
-								this.gameObject.GetComponent<AudioSource> ().Play ();
-							}
-							WinPanel.SetActive (true);
-
-							AmountDisplay.GetComponent<Text> ().text = "" + WinAmount;
-
-							StartCoroutine(WinnerAPI("4","4"));
-
-						}
-//						StartCoroutine (RoomDiscard ("OTHER PLAYER IS NOT CONNECTED WITHIN TIME SO, QUITING THIS GAME"));
+						//						StartCoroutine (RoomDiscard ("OTHER PLAYER IS NOT CONNECTED WITHIN TIME SO, QUITING THIS GAME"));
 
 					} else {
 						StartCoroutine (AutoDisconnectFromRoom ("OTHER PLAYER IS NOT CONNECTED WITHIN TIME SO, QUITING THIS GAME"));
 					}
 				}
+			}
+		}
+
+
+
+		void BeTheWinner()
+		{
+			if (PhotonNetwork.IsMasterClient) {
+				if (soundValue.Equals ("on")) {
+					this.gameObject.GetComponent<AudioSource> ().clip = AudioClips [3];
+					this.gameObject.GetComponent<AudioSource> ().Play ();
+				}
+				WinPanel.SetActive (true);
+
+				AmountDisplay.GetComponent<Text> ().text = "" + WinAmount;
+
+				StartCoroutine(WinnerAPI("2","2"));
+
+			}
+
+			if (!PhotonNetwork.IsMasterClient) {
+				if (soundValue.Equals ("on")) {
+					this.gameObject.GetComponent<AudioSource> ().clip = AudioClips [3];
+					this.gameObject.GetComponent<AudioSource> ().Play ();
+				}
+				WinPanel.SetActive (true);
+
+				AmountDisplay.GetComponent<Text> ().text = "" + WinAmount;
+
+				StartCoroutine(WinnerAPI("4","4"));
+
 			}
 		}
 
@@ -3068,25 +3080,25 @@ namespace Photon.Pun.UtilityScripts
 		void TimerLogicWhenIsMyTurn()
 		{
 			if (isRemotePlayerConnected && isBothPlayerEnteredInRoom){
-			if (PhotonNetwork.CurrentRoom.PlayerCount == 2 && FirstTimer < 1) {
-				PlayerCount1 = 2;
+				if (PhotonNetwork.CurrentRoom.PlayerCount == 2 && FirstTimer < 1) {
+					PlayerCount1 = 2;
 					GettingSafePoints ();
-				FirstTimer = (int)Time.time + 3;
-				print ("Got the First Number" + FirstTimer);
+					FirstTimer = (int)Time.time + 3;
+					print ("Got the First Number" + FirstTimer);
+				}
+				if (FirstTimer > 0 && SecondTimer < 3) {
+					print ("Countdown:" + ((int)Time.time - (int)FirstTimer));
+					SecondTimer = (int)Time.time - (int)FirstTimer;
+					Countdown.text = "" + (FirstTimer - (int)Time.time);
+				}
 			}
-			if (FirstTimer > 0 && SecondTimer < 3) {
-				print ("Countdown:" + ((int)Time.time - (int)FirstTimer));
-				SecondTimer = (int)Time.time - (int)FirstTimer;
-				Countdown.text = "" + (FirstTimer - (int)Time.time);
-			}
-		}
 			print ("SecondTimer:"+SecondTimer);
 			if (isMyTurn && PhotonNetwork.CurrentRoom.PlayerCount == 2 && SecondTimer==3) {
 				if (TriggerCounter < 1) 
 				{
 					TriggerCounter += 1;
 					TriggeredTime = (int)Time.time;
-					TimerImage.fillAmount = 1;
+//					TimerImage.fillAmount = 1;
 				}
 				if (TriggerCounter == 1 && timer!=16) 
 				{
@@ -3167,7 +3179,7 @@ namespace Photon.Pun.UtilityScripts
 			GreenPiceSafeHouse [3] = GreenPiceSafeHouseGO [3].transform.position;
 		}
 		public void SoundOnOff(){
-			
+
 			GameObject SoundToggle = GameObject.Find ("SoundToggle");
 			print (SoundToggle.GetComponent<Toggle> ().isOn);
 			if (SoundToggle.GetComponent<Toggle> ().isOn) {
